@@ -40,11 +40,11 @@ RUN apt-get -qq update
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
 RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN chmod 600 ~/.ssh/authorized_keys
-RUN ssh -o "StrictHostKeyChecking no" root@localhost
+#RUN ssh -o "StrictHostKeyChecking no" root@localhost
 
 # Install Ambari server
 RUN apt-get -y install ambari-server
-#RUN ambari-server setup -s --enable-lzo-under-gpl-license
+RUN ambari-server setup -s --enable-lzo-under-gpl-license
 
 # Setup env
 ENV JAVA_HOME /usr/jdk64/jdk1.8.0_112
