@@ -22,7 +22,17 @@ apt-get -qq -y install tar && \
 apt-get -qq -y install openssl && \
 apt-get -qq -y install sudo && \
 apt-get -qq -y install ntp && \
-apt-get install -qq -y iputils-ping
+apt-get install -qq -y iputils-ping && \
+apt-get install -qq -y libmysql-java && \
+apt-get install -qq -y libpostgresql-jdbc-java
+
+
+# MySQL
+ENV MYSQL_PWD kylo
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
+RUN apt-get -y install mysql-server
+
 
 #check/update services
 RUN update-rc.d ntp defaults && \
