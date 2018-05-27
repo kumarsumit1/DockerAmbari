@@ -21,7 +21,8 @@ RUN apt-get -qq -y install unzip
 RUN apt-get -qq -y install tar
 RUN apt-get -qq -y install openssl
 RUN apt-get -qq -y install sudo
-RUN apt-get -qq -y install ntp
+RUN apt-get -qq -y install ntp && \
+apt-get install -qq -y iputils-ping
 
 #check/update services
 RUN update-rc.d ntp defaults
@@ -40,7 +41,7 @@ RUN apt-get -qq update
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -q -P ""
 RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN chmod 600 ~/.ssh/authorized_keys
-RUN ssh -tt -o "StrictHostKeyChecking no" root@localhost
+RUN ssh -T -o "StrictHostKeyChecking no" root@localhost
 
 # Install Ambari server
 RUN apt-get -y install ambari-server && ambari-server setup -s --enable-lzo-under-gpl-license
