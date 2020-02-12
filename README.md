@@ -2,7 +2,7 @@
 
 docker run -i -t -h node.monocluster.com -p 2181:2181 -p 9092:9092 -p 8080:8080 --name amb1 --entrypoint /bin/bash kumarsumit1/dockerambari 
 
-docker run -i -t -h node.monocluster.com -p 2181:2181 -p 9092:9092 -p 8080:8080 --name amb ambari /bin/bash
+docker run -i -t -h node.monocluster.com -p 2181:2181 -p 9092:9092 -p 8080:8080 --name amb kumarsumit1/dockerambari
 
 docker run -i -t --network=host ubuntu:16.04 /bin/bash
 

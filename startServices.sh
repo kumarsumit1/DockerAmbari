@@ -17,8 +17,7 @@ service mysql start
 
 ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql.jar
 
-mysql -uroot -pkylo -e 'CREATE USER `hive`@`localhost` IDENTIFIED BY `kylo`; GRANT ALL PRIVILEGES ON *.* TO `hive`@`localhost`; CREATE USER `hive`@`%` IDENTIFIED BY `kylo`;GRANT ALL PRIVILEGES ON *.* TO `hive`@`%`; CREATE USER `hive`@`node.monocluster.com` IDENTIFIED BY `kylo`; GRANT ALL PRIVILEGES ON *.* TO `hive`@`node.monocluster.com`; FLUSH PRIVILEGES; CREATE DATABASE hive;
-'
+mysql -uroot -pkylo -e 'CREATE USER `hive`@`localhost` IDENTIFIED BY `kylo`; GRANT ALL PRIVILEGES ON *.* TO `hive`@`localhost`; CREATE USER `hive`@`%` IDENTIFIED BY `kylo`;GRANT ALL PRIVILEGES ON *.* TO `hive`@`%`; CREATE USER `hive`@`node.monocluster.com` IDENTIFIED BY `kylo`; GRANT ALL PRIVILEGES ON *.* TO `hive`@`node.monocluster.com`; FLUSH PRIVILEGES; CREATE DATABASE hive;'
 
 
 
